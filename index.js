@@ -2,6 +2,14 @@ var ghauth = require('ghauth');
 var GH = require('github');
 var path = require('path');
 var minimist = require('minimist');
+var exec = require('child_process').exec;
+
+var github = new GH({
+	version:'3.0.0',
+	headers: {
+		'User-Agent': 'create-repository'
+	}
+});
 
 var pkg = {};
 try { pkg = require(path.resolve('package.json'));}
@@ -25,14 +33,6 @@ ghauth({
 }, function(err, auth) {
 	if (err) throw err;
 
-
-	var github = new GH({
-		version:'3.0.0',
-		headers: {
-			'User-Agent': 'create-repository'
-		}
-	});
-
 	github.authenticate({
 		type: 'oauth',
 		token: auth.token
@@ -42,7 +42,25 @@ ghauth({
 		name: argv.name,
 		description: argv.description
 	}, function(err, res) {
-		if (err) throw err;
-		console.log(res);
+		if (err) {
+			if (err.message[0] !== '{') throw err; // not json
+			err = JSON.parse(err.message);
+			console.error(err.errors[0].message);
+			process.exit(1);
+		}
+
+		exec('git remote', function(err, stdout, stderr) {
+			if (err) throw err;
+
+			console.log('Repository created https://github.com/'+auth.name+'/'+argv.name);
+
+			if (stdout.indexOf('origin') > -1) return;
+
+			exec('git remote add origin git@github.com:'+auth.name+'/'+argv.name+'.git', function(err, stdout, stderr) {
+				if (err) throw err;
+
+				console.log('Added origin. You might want to: git push -u origin master');
+			});
+		});
 	});
 });

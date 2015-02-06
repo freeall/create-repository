@@ -54,11 +54,11 @@ ghauth({
 		exec('git remote', function(err, stdout, stderr) {
 			if (err) throw err;
 
-			console.log('Repository created https://github.com/'+auth.name+'/'+argv.name);
+			console.log('Repository created https://github.com/'+auth.user+'/'+argv.name);
 
 			if (stdout.indexOf('origin') > -1) return;
 
-			exec('git remote add origin git@github.com:'+auth.name+'/'+argv.name+'.git', function(err, stdout, stderr) {
+			exec('git remote add origin git@github.com:'+auth.user+'/'+argv.name+'.git', function(err, stdout, stderr) {
 				if (err) throw err;
 
 				console.log('Added origin. You might want to: git push -u origin master');

@@ -1,0 +1,17 @@
+{
+  "name": "create-repository",
+  "version": "0.0.0",
+  "description": "WIP",
+  "dependencies": {
+    "ghauth": "^2.0.0",
+    "github": "^0.2.3",
+    "minimist": "^1.1.0"
+  },
+  "devDependencies": {},
+  "author": "Tobias Baunbæk <freeall@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeall/create-repository.git"
+  }
+}

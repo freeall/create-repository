@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var ghauth = require('ghauth');
 var GH = require('github');
 var path = require('path');

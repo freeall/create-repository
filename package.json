@@ -8,6 +8,9 @@
     "minimist": "^1.1.0"
   },
   "devDependencies": {},
+  "bin": {
+    "create-repository": "index.js"
+  },
   "author": "Tobias Baunbæk <freeall@gmail.com>",
   "license": "MIT",
   "repository": {

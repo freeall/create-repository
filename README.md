@@ -8,11 +8,13 @@ npm install create-repository -g
 
 ## Usage
 
-`create-repository` will try to read `package.json` and use the name and description properties. Also accepts `--name` and `--description`
+`create-repository` will try to read `package.json` and use the name and description properties.
 
 ```
 $ create-repository
 ```
+
+You can also pass values for name and description.
 
 ```
 $ create-repository --name my-new-project --description "That's all I have to say about that"

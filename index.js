@@ -29,39 +29,43 @@ var argv = minimist(process.argv, {
 	}
 });
 
-ghauth({
-	configName: 'create-repository',
-	scopes: ['repo']
-}, function(err, auth) {
-	if (err) throw err;
+exec('git status', function(err, stdout, stderr) {
+	if (stderr.indexOf('Not a git repository') > -1) return console.error('Not a git folder. Maybe you forgot to \'git init\'');
 
-	github.authenticate({
-		type: 'oauth',
-		token: auth.token
-	});
+	ghauth({
+		configName: 'create-repository',
+		scopes: ['repo']
+	}, function(err, auth) {
+		if (err) throw err;
 
-	github.repos.create({
-		name: argv.name,
-		description: argv.description
-	}, function(err, res) {
-		if (err) {
-			if (err.message[0] !== '{') throw err; // not json
-			err = JSON.parse(err.message);
-			console.error(err.errors[0].message);
-			process.exit(1);
-		}
+		github.authenticate({
+			type: 'oauth',
+			token: auth.token
+		});
 
-		exec('git remote', function(err, stdout, stderr) {
-			if (err) throw err;
+		github.repos.create({
+			name: argv.name,
+			description: argv.description
+		}, function(err, res) {
+			if (err) {
+				if (err.message[0] !== '{') throw err; // not json
+				err = JSON.parse(err.message);
+				console.error(err.errors[0].message);
+				process.exit(1);
+			}
 
-			console.log('Repository created https://github.com/'+auth.user+'/'+argv.name);
-
-			if (stdout.indexOf('origin') > -1) return;
-
-			exec('git remote add origin git@github.com:'+auth.user+'/'+argv.name+'.git', function(err, stdout, stderr) {
+			exec('git remote', function(err, stdout, stderr) {
 				if (err) throw err;
 
-				console.log('Added origin. You might want to: git push -u origin master');
+				console.log('Repository created https://github.com/'+auth.user+'/'+argv.name);
+
+				if (stdout.indexOf('origin') > -1) return;
+
+				exec('git remote add origin git@github.com:'+auth.user+'/'+argv.name+'.git', function(err, stdout, stderr) {
+					if (err) throw err;
+
+					console.log('Added origin. You might want to: git push -u origin master');
+				});
 			});
 		});
 	});

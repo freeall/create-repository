@@ -1,0 +1,21 @@
+-- تعريف اللاعب
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- تعريف العناصر في اللعبة (تعديل هذا المسار حسب لعبتك)
+local itemsFolder = workspace:FindFirstChild("Items") -- تأكد من وجود المجلد
+
+if itemsFolder then
+    for _, item in ipairs(itemsFolder:GetChildren()) do
+        -- التحقق من أن العنصر جزء من اللعبة
+        if item:IsA("Part") then
+            -- نقل اللاعب إلى موقع العنصر
+            character.HumanoidRootPart.CFrame = item.CFrame
+            
+            -- تقليل زمن الانتظار لتسريع العملية
+            task.wait(0.05) -- تقليل الانتظار إلى الحد الأدنى
+        end
+    end
+else
+    warn("Items folder not found in workspace.")
+end

@@ -1,20 +1,21 @@
 {
-  "name": "create-repository",
-  "version": "1.3.0",
-  "description": "Easily set up a new github repository. Reads the name/description from the package.json file if it's present. Sets origin upstream if it's not already set.",
-  "dependencies": {
-    "ghauth": "^2.0.0",
-    "github": "^0.2.3",
-    "minimist": "^1.1.0"
-  },
-  "devDependencies": {},
-  "bin": {
-    "create-repository": "index.js"
-  },
-  "author": "Tobias Baunbæk <freeall@gmail.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/freeall/create-repository.git"
+  # Tesla Dynamics Investment Website
+
+This is the official frontend of the Tesla Dynamics Investment platform. Built with plain HTML, CSS, and JavaScript.
+
+## Features
+- Responsive homepage
+- Admin dashboard (coming soon)
+- Integration with Tesla Logistics API
+
+## Setup
+1. Clone the repository
+2. Open `index.html` in a browser
+
+## Folder Structure
+See structure in this repo for assets, styles, and scripts.
+
+## License
+MIT
   }
 }

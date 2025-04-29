@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Expertise - Accounting & Financial Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-800">CA Expertise</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#home" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="#blog" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                    <a href="#events" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Events & Places</a>
+                    <a href="#info" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Resources</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-500 to-teal-600 text-white">
+        <div class="text-center max-w-3xl mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Your Trusted Chartered Accountant</h1>
+            <p class="text-lg sm:text-xl mb-6">Expert financial advice, tax planning, and auditing services for your business success.</p>
+            <a href="#contact" class="inline-block bg-white text-green-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition">Get a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Latest Blog Posts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Tax Saving Tips for 2025</h3>
+                    <p class="text-gray-600 mb-4">Learn how to optimize your tax returns with these expert strategies.</p>
+                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">GST Updates for Businesses</h3>
+                    <p class="text-gray-600 mb-4">Stay compliant with the latest GST regulations and avoid penalties.</p>
+                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Financial Planning for Startups</h3>
+                    <p class="text-gray-600 mb-4">Key steps to secure your startup’s financial future.</p>
+                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Places Section -->
+    <section id="events" class="py-20 bg-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Networking Events & Business Hubs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">ICAI Annual Conference, Mumbai</h3>
+                    <p class="text-gray-600 mb-4">Join industry leaders at the ICAI conference in Mumbai, December 2025. Network and gain insights.</p>
+                    <a href="#" class="text-green-600 hover:underline">Learn More</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Delhi Business Summit</h3>
+                    <p class="text-gray-600 mb-4">Connect with entrepreneurs at this summit in New Delhi, January 2026.</p>
+                    <a href="#" class="text-green-600 hover:underline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="info" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Resources for You</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Tax Calendar 2025</h3>
+                    <p class="text-gray-600 mb-4">Stay on top of key tax deadlines with our downloadable calendar.</p>
+                    <a href="#" class="text-green-600 hover:underline">Download Now</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">ICAI Guidelines</h3>
+                    <p class="text-gray-600 mb-4">Understand the ethical standards for CAs with our summary of ICAI rules.</p>
+                    <a href="#" class="text-green-600 hover:underline">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+            <p class="text-lg mb-4">Contact us for expert financial advice or subscribe to our newsletter.</p>
+            <form class="max-w-md mx-auto">
+                <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded-lg text-gray-800" required>
+                <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Subscribe</button>
+            </form>
+            <p class="text-sm mt-4">Email: <a href="mailto:info@caexpertise.com" class="underline">info@caexpertise.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">© 2025 CA Expertise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <!-- Google AdSense Script (Placeholder) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+</body>
+</html>

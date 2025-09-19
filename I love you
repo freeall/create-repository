@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>I love u — cyber message</title>
+<style>
+  :root{
+    --bg:#000;
+    --glow:#00ff6a; /* green hacking glow */
+    --accent:#0ff; 
+  }
+  html,body{height:100%;margin:0;background:var(--bg);overflow:hidden;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+  /* scene container */
+  .scene{
+    position:relative;
+    width:100%;
+    height:100vh;
+    perspective:1100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 50% 10%, rgba(0,255,150,0.02), transparent 15%),
+      linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0.9));
+  }
+
+  /* main 3d ring wrapper */
+  .ring{
+    width:80vmin;
+    height:80vmin;
+    transform-style:preserve-3d;
+    animation:spin 26s linear infinite;
+    will-change:transform;
+  }
+
+  @keyframes spin{
+    from{transform:rotateX(12deg) rotateY(0deg) rotateZ(0deg);}
+    to  {transform:rotateX(12deg) rotateY(360deg) rotateZ(0deg);}
+  }
+
+  /* multiple layers of text to create depth */
+  .layer{
+    position:absolute;
+    left:50%; top:50%;
+    transform-style:preserve-3d;
+    transform-origin:center;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+  }
+
+  .ticker{
+    font-weight:800;
+    letter-spacing:0.02em;
+    text-transform:none;
+    white-space:nowrap;
+    font-family: 'Orbitron', sans-serif;
+    font-size:8vmin;
+    mix-blend-mode:screen;
+    text-shadow:
+      0 0 28px rgba(0,255,120,0.18),
+      0 0 10px rgba(0,255,120,0.13);
+    color:transparent;
+    -webkit-background-clip:text;
+    background-clip:text;
+    background-image:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(150,255,200,0.9));
+  }
+
+  /* hacking matrix-like small code lines */
+  .codes {
+    position:absolute;
+    inset:0;
+    font-family:monospace;
+    font-size:2.2vmin;
+    color:rgba(0,255,120,0.18);
+    letter-spacing:0.08em;
+    transform:translateZ(-300px) rotateX(75deg) scale(1.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+    opacity:0.9;
+    filter:blur(.4px);
+  }
+
+  /* red particle dots */
+  .dots{ position:absolute; inset:0; pointer-events:none; }
+  .dot{
+    position:absolute;
+    width:8px;height:8px;border-radius:50%;
+    background:rgba(255,40,40,0.95);
+    box-shadow:0 0 10px rgba(255,40,40,0.5);
+    mix-blend-mode:screen;
+    animation:float 6s ease-in-out infinite;
+    opacity:0.9;
+  }
+  @keyframes float{
+    0%{transform:translateY(0px) scale(1)}
+    50%{transform:translateY(-30px) scale(1.15)}
+    100%{transform:translateY(0px) scale(1)}
+  }
+
+  /* animated chromatic/scanline effect for cyber look */
+  .scanline{
+    position:absolute; inset:0; pointer-events:none;
+    background-image: linear-gradient(transparent 50%, rgba(0,255,120,0.02) 50%);
+    background-size:100% 6px;
+    mix-blend-mode:screen;
+    animation:scan 4s linear infinite;
+    opacity:0.4;
+  }
+  @keyframes scan{ from{background-position-y:0} to{background-position-y:6px} }
+
+  /* glow halo around the main 'I love u' */
+  .glow{
+    position:absolute;
+    filter:blur(28px) saturate(140%);
+    opacity:0.85;
+    width:60vmin;height:60vmin;
+    border-radius:50%;
+    background:radial-gradient(circle at 40% 40%, rgba(0,255,140,0.18), rgba(0,0,0,0));
+    transform:translate(-50%,-50%) translateZ(-120px);
+    left:50%;top:50%;
+    pointer-events:none;
+  }
+
+  /* smaller subtitle style */
+  .subtitle{
+    position:absolute;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#00ff8a;
+    font-family:monospace;
+    font-size:3.2vmin;
+    opacity:0.65;
+    letter-spacing:0.06em;
+    text-shadow:0 0 4px rgba(0,255,120,0.2);
+    pointer-events:none;
+  }
+
+  /* responsive tweaks */
+  @media (max-width:520px){
+    .ticker{ font-size:11vmin; }
+    .codes{ font-size:2.8vmin; transform:translateZ(-220px) rotateX(78deg) scale(1.05); }
+  }
+
+  /* "glitch" animation for main text to feel alive */
+  .ticker.glitch{
+    position:relative;
+    animation:glowPulse 2.6s ease-in-out infinite;
+  }
+  @keyframes glowPulse{
+    0%{filter:drop-shadow(0 0 8px rgba(0,255,110,0.18))}
+    50%{filter:drop-shadow(0 0 22px rgba(0,255,110,0.35))}
+    100%{filter:drop-shadow(0 0 8px rgba(0,255,110,0.18))}
+  }
+
+  /* small credit / QR area */
+  .qr-area{
+    position:absolute;
+    top:12px; right:12px;
+    background:rgba(0,0,0,0.45);
+    padding:8px;border-radius:8px;
+    display:flex;gap:8px;align-items:center;
+    backdrop-filter:blur(6px);
+    z-index:20;color:#9ffea0;font-size:12px;
+  }
+  .qr-area img{width:56px;height:56px;border-radius:6px;border:1px solid rgba(0,255,120,0.08)}
+  .qr-area a{color:#9ffea0;text-decoration:none;font-family:monospace}
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="ring" id="ring">
+    <!-- multiple layers to produce depth -->
+    <div class="layer" style="transform:translate(-50%,-50%) translateZ(140px) scale(1.2);">
+      <div class="ticker glitch">I love u</div>
+    </div>
+
+    <div class="layer" style="transform:translate(-50%,-50%) translateZ(80px) rotateX(6deg) scale(1.05);">
+      <div class="ticker" style="opacity:0.86; font-size:7vmin">I love u</div>
+    </div>
+
+    <div class="layer" style="transform:translate(-50%,-50%) translateZ(0px) rotateX(12deg) scale(.98);">
+      <div class="ticker" style="opacity:0.75; font-size:6.6vmin">I love u</div>
+    </div>
+
+    <div class="layer" style="transform:translate(-50%,-50%) translateZ(-120px) rotateX(16deg) scale(.9);">
+      <div class="ticker" style="opacity:0.55; font-size:5.6vmin">I love u</div>
+    </div>
+
+    <!-- code matrix layer -->
+    <div class="codes">
+      <div id="codeContent"></div>
+    </div>
+
+    <div class="glow"></div>
+
+  </div>
+
+  <div class="dots" id="dots"></div>
+  <div class="scanline"></div>
+
+  <div class="subtitle">— scan the QR or open the page —</div>
+
+  <div class="qr-area" id="qrArea" title="This QR points to this page">
+    <img id="qrImg" alt="qr"/>
+    <div style="font-size:11px">Scan me</div>
+  </div>
+</div>
+
+<script>
+/* tiny helper: create matrix lines with 'I love u' and pseudo code */
+(function(){
+  // make pseudo code content
+  const codeTarget = document.getElementById('codeContent');
+  const lines = [];
+  const phrases = [
+    "01001001 00100000 01101100 01101111 01110110 01100101 00100000 01110101", // binary: I love u
+    "printf(\"I love u\\n\");",
+    "console.log('I love u');",
+    "echo \"I love u\";",
+    "LOOP: INFINITY -> ❤",
+    "def love(): return 'I love u'",
+    "# love protocol v1.0",
+    "payload: { 'message': 'I love u' }"
+  ];
+  for(let i=0;i<32;i++){
+    const p = phrases[Math.floor(Math.random()*phrases.length)];
+    const pad = Array(Math.floor(Math.random()*12)).fill(' ').join('');
+    lines.push(pad + p);
+  }
+  codeTarget.innerText = lines.join('\\n');
+
+  // make red floating dots
+  const dots = document.getElementById('dots');
+  for(let i=0;i<10;i++){
+    const d = document.createElement('div');
+    d.className='dot';
+    const left = Math.random()*100;
+    const top = Math.random()*100;
+    d.style.left = left+'%';
+    d.style.top = top+'%';
+    d.style.animationDelay = (Math.random()*4)+'s';
+    d.style.width = (6 + Math.random()*10)+'px';
+    d.style.height = d.style.width;
+    dots.appendChild(d);
+  }
+
+  // produce a QR image that points to the current URL using qrserver API (works for hosting)
+  const qrImg = document.getElementById('qrImg');
+  const pageUrl = location.href;
+  // generate a QR using free API (replace pageUrl if you want)
+  const api = 'https://api.qrserver.com/v1/create-qr-code/?size=512x512&data=' + encodeURIComponent(pageUrl);
+  qrImg.src = api;
+
+  // tiny effect: make the code scroll slowly
+  const codesEl = document.querySelector('.codes');
+  let offset = 0;
+  setInterval(()=>{ offset = (offset + 0.3) % 400; codesEl.style.backgroundPositionY = offset + 'px'; codesEl.scrollTop = (offset*0.2); }, 40);
+})();
+</script>
+
+</body>
+</html>

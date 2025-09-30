@@ -10,9 +10,7 @@
   </h1>
 </body>
 </html>
-
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
@@ -30,6 +28,5 @@
   <audio src="mat.mp4" controls muted>sorry.</audio>
 </h3>
 </div>
- 
 </body>
 </html>

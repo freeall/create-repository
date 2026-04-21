@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>https://sirajsalo14.github.io/portfolio/
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siraj Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #fff;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background: rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+}
+
+nav h2 {
+    color: #38bdf8;
+}
+
+/* Hero */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+/* TEXT */
+.hero-text h1 {
+    font-size: 50px;
+}
+
+.hero-text span {
+    color: #38bdf8;
+}
+
+.hero-text p {
+    margin: 20px 0;
+    color: #ccc;
+}
+
+/* IMAGE */
+.hero-img img {
+    width: 300px;
+    border-radius: 50%;
+    border: 5px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56,189,248,0.5);
+}
+
+/* Cards */
+.section {
+    padding: 60px 10%;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    color: #aaa;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-img img {
+        margin-top: 20px;
+        width: 200px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <h2>Siraj Salo</h2>
+</nav>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Hi, I'm <span>Siraj Salo</span></h1>
+        <p>Web Developer | Creative Thinker</p>
+    </div>
+
+    <div class="hero-img">
+        <img src="profile.jpg" alt="My Photo">
+    </div>
+</section>
+
+<section class="section">
+    <h2>About Me</h2>
+    <p>I build modern and responsive websites.</p>
+</section>
+
+<section class="section">
+    <h2>Projects</h2>
+    <div class="cards">
+        <div class="card">Project 1</div>
+        <div class="card">Project 2</div>
+        <div class="card">Project 3</div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Siraj Salo</p>
+</footer>
+
+</body>
+</html><section class="section">
+    <h2>Contact Me</h2>
+
+    <form action="https://formspree.io/f/xlganwgr" method="POST" class="contact-form">
+        
+        <input type="text" name="name" placeholder="Siraj Salo" required>
+        
+        <input type="email" name="email" placeholder="sirajsalo14@gmail.com" required>
+        
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        
+        <button type="submit">Send Message</button>
+
+    </form>
+</section>
+
+<style>
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    height: 120px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
